@@ -1,7 +1,7 @@
 import { Row, Col, Card, Button } from "react-bootstrap";
 import { PowerStats } from "./Powerstats";
 
-export function Heroe() {
+export function Hero() {
   return (
     <Card className="m-3">
       <Card.Img
