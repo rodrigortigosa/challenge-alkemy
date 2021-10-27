@@ -17,9 +17,7 @@ export function Home() {
         power: 47,
         combat: 100,
       },
-      image: {
-        url: "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg",
-      },
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg",
     },
     {
       id: 620,
@@ -32,9 +30,7 @@ export function Home() {
         power: 74,
         combat: 85,
       },
-      image: {
-        url: "https://www.superherodb.com/pictures2/portraits/10/100/133.jpg",
-      },
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/133.jpg",
     },
     {
       id: 687,
@@ -47,9 +43,7 @@ export function Home() {
         power: 86,
         combat: 84,
       },
-      image: {
-        url: "https://www.superherodb.com/pictures2/portraits/10/100/22.jpg",
-      },
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/22.jpg",
     },
     {
       id: 213,
@@ -62,9 +56,7 @@ export function Home() {
         power: 100,
         combat: 100,
       },
-      image: {
-        url: "https://www.superherodb.com/pictures2/portraits/10/100/835.jpg",
-      },
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/835.jpg",
     },
     {
       id: 263,
@@ -77,9 +69,7 @@ export function Home() {
         power: 68,
         combat: 32,
       },
-      image: {
-        url: "https://www.superherodb.com/pictures2/portraits/10/100/891.jpg",
-      },
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/891.jpg",
     },
     {
       id: 332,
@@ -92,9 +82,7 @@ export function Home() {
         power: 98,
         combat: 85,
       },
-      image: {
-        url: "https://www.superherodb.com/pictures2/portraits/10/100/83.jpg",
-      },
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/83.jpg",
     },
   ];
 

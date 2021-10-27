@@ -5,7 +5,7 @@ export function Hero(props) {
   const hero = props.hero;
   return (
     <Card className="m-3 w-75">
-      <Card.Img variant="bottom" src={hero.image.url} />
+      <Card.Img variant="bottom" src={hero.image} />
       <Card.Body>
         <Card.Title>{hero.name}</Card.Title>
       </Card.Body>
