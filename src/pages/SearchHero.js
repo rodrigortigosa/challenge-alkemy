@@ -16,7 +16,7 @@ export function SearchHero() {
   const [heroes, setHeroes] = useState([]);
 
   const obtenerDatos = () => {
-    const baseUrl = "https://superheroapi.com/api/10223121061088645";
+    const baseUrl = `https://superheroapi.com/api/${process.env.development.local.ACCESS_TOKEN}`;
     axios.get(`${baseUrl}/search/batman`).then((response) => {
       let heroesToShow = [];
       if (response.data.results.length === 0) return [];
