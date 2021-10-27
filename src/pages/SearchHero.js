@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -11,20 +12,31 @@ import { Header } from "../components/Header";
 import { Title } from "../components/Title";
 
 export function SearchHero() {
-  const heroes = [
+  const datos = [
     {
+      id: 69,
       name: "Batman",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg",
     },
     {
+      id: 70,
       name: "Batman",
-      image: "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg",
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg",
     },
     {
-      name: "Batman",
-      image: "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg",
+      id: 71,
+      name: "Batman II",
+      image: "https://www.superherodb.com/pictures2/portraits/10/100/1496.jpg",
     },
   ];
+
+  const [heroes, setHeroes] = useState([]);
+
+  useEffect(() => {
+    /* obtenerDatos(); */
+    setHeroes(datos);
+  }, []);
+
   return (
     <Container className="p-0 w-auto">
       <Header />
@@ -49,7 +61,7 @@ export function SearchHero() {
         <Row className="row-cols-1 row-cols-lg-3">
           {heroes.map((hero) => {
             return (
-              <Col className="d-flex justify-content-center">
+              <Col className="d-flex justify-content-center" key={hero.id}>
                 <Card className="m-3 w-75">
                   <Card.Img variant="bottom" src={hero.image} />
                   <Card.Body>
