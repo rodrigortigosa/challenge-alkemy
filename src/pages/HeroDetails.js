@@ -1,9 +1,11 @@
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import { Header } from "../components/Header";
 import { Title } from "../components/Title";
 
 export function HeroDetails() {
   return (
     <Container className="p-0 w-auto">
+      <Header />
       <Title text="Detalles de Batman" />
       <ListGroup className="my-3">
         <ListGroup.Item>
