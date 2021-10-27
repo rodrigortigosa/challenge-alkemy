@@ -6,10 +6,10 @@ import { SearchHero } from "./pages/SearchHero";
 function App() {
   return (
     <>
-      <Home />
       {/* <Login /> */}
+      <Home />
       {/* <HeroDetails /> */}
-      {/*  <SearchHero /> */}
+      {/* <SearchHero /> */}
     </>
   );
 }

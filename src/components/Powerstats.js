@@ -15,14 +15,16 @@ function Powerstat(props) {
   );
 }
 
-export function PowerStats() {
+export function PowerStats(props) {
+  const powerstats = props.stats;
   return (
     <ListGroup className="list-group-flush">
-      <Powerstat text="Fuerza" number="40" />
-      <Powerstat text="Velocidad" number="29" />
-      <Powerstat text="Durabilidad" number="55" />
-      <Powerstat text="Poder" number="63" />
-      <Powerstat text="Combate" number="90" />
+      <Powerstat text="Inteligencia" number={powerstats.intelligence} />
+      <Powerstat text="Fuerza" number={powerstats.strength} />
+      <Powerstat text="Velocidad" number={powerstats.speed} />
+      <Powerstat text="Durabilidad" number={powerstats.durability} />
+      <Powerstat text="Poder" number={powerstats.power} />
+      <Powerstat text="Combate" number={powerstats.combat} />
     </ListGroup>
   );
 }
