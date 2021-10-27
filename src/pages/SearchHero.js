@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import {
   Container,
@@ -12,29 +13,37 @@ import { Header } from "../components/Header";
 import { Title } from "../components/Title";
 
 export function SearchHero() {
-  const datos = [
-    {
-      id: 69,
-      name: "Batman",
-      image: "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg",
-    },
-    {
-      id: 70,
-      name: "Batman",
-      image: "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg",
-    },
-    {
-      id: 71,
-      name: "Batman II",
-      image: "https://www.superherodb.com/pictures2/portraits/10/100/1496.jpg",
-    },
-  ];
-
   const [heroes, setHeroes] = useState([]);
 
+  const obtenerDatos = () => {
+    const baseUrl = "https://superheroapi.com/api/10223121061088645";
+    axios.get(`${baseUrl}/search/batman`).then((response) => {
+      let heroesToShow = [];
+      if (response.data.results.length === 0) return [];
+      else {
+        heroesToShow = response.data.results.map((heroToShow) => {
+          let hero = {
+            id: heroToShow.id,
+            name: heroToShow.name,
+            powerstats: {
+              intelligence: heroToShow.powerstats.intelligence,
+              strength: heroToShow.powerstats.strength,
+              speed: heroToShow.powerstats.speed,
+              durability: heroToShow.powerstats.durability,
+              power: heroToShow.powerstats.power,
+              combat: heroToShow.powerstats.combat,
+            },
+            image: heroToShow.image.url,
+          };
+          return hero;
+        });
+        setHeroes(heroesToShow);
+      }
+    });
+  };
+
   useEffect(() => {
-    /* obtenerDatos(); */
-    setHeroes(datos);
+    obtenerDatos();
   }, []);
 
   return (
