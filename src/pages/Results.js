@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { Loading } from "../components/Loading";
 import heroesService from "../services/heroes";
+import TeamContext from "../contexts/TeamContext";
+import { useHistory } from "react-router";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
-function showResults(heroes) {
+function showResults(heroes, onClick, history) {
   if (heroes.length === 0) return <div>No hay resultados</div>;
   else {
     return (
@@ -29,7 +31,12 @@ function showResults(heroes) {
                   <Card.Body>
                     <Row className="justify-content-end">
                       <Col className="text-end" xs={12}>
-                        <Button variant="primary">Agregar</Button>
+                        <Button
+                          variant="primary"
+                          onClick={() => onClick(hero, history)}
+                        >
+                          Agregar
+                        </Button>
                       </Col>
                     </Row>
                   </Card.Body>
@@ -44,7 +51,12 @@ function showResults(heroes) {
 }
 
 export const Results = () => {
+  const history = useHistory();
+  console.log(history);
+
   let query = useQuery().get("search");
+  const teamData = useContext(TeamContext);
+  console.log(teamData.team);
 
   const [heroes, setHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -62,5 +74,13 @@ export const Results = () => {
       });
   }, [query]);
 
-  return <>{loading ? <Loading /> : showResults(heroes)}</>;
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        showResults(heroes, teamData.handleCallback, history)
+      )}
+    </>
+  );
 };
