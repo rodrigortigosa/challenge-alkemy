@@ -15,8 +15,8 @@ export function Navbar() {
         <NavbarBootstrap.Toggle aria-controls="responsive-navbar-nav" />
         <NavbarBootstrap.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href={HOME}>Home</Nav.Link>
-            <Nav.Link href={SEARCH}>Search</Nav.Link>
+            <Nav.Link href={HOME}>Mi equipo</Nav.Link>
+            <Nav.Link href={SEARCH}>Buscar heroe</Nav.Link>
           </Nav>
         </NavbarBootstrap.Collapse>
       </Container>
