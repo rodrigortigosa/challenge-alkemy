@@ -8,6 +8,7 @@ import { Login } from "./pages/Login";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { useState } from "react";
 import { TeamProvider } from "./contexts/TeamContext";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   const initialTeam = [
@@ -109,6 +110,7 @@ function App() {
     <>
       <TeamProvider value={teamValue}>
         <Router>
+          <Navbar />
           <Switch>
             <Route path={RESULTS} component={Results} />
             <Route path={SEARCH} component={SearchHero} exact />
