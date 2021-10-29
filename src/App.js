@@ -23,6 +23,7 @@ function App() {
         power: 47,
         combat: 100,
       },
+      alignment: "good",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg",
     },
     {
@@ -36,6 +37,7 @@ function App() {
         power: 74,
         combat: 85,
       },
+      alignment: "good",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/133.jpg",
     },
     {
@@ -49,6 +51,7 @@ function App() {
         power: 86,
         combat: 84,
       },
+      alignment: "bad",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/22.jpg",
     },
     {
@@ -62,6 +65,7 @@ function App() {
         power: 43,
         combat: 70,
       },
+      alignment: "bad",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/719.jpg",
     },
     {
@@ -75,6 +79,7 @@ function App() {
         power: 100,
         combat: 100,
       },
+      alignment: "bad",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/10444.jpg",
     },
     {
@@ -88,6 +93,7 @@ function App() {
         power: 100,
         combat: 85,
       },
+      alignment: "good",
       image: "https://www.superherodb.com/pictures2/portraits/10/100/791.jpg",
     },
   ];

@@ -20,6 +20,7 @@ const getHeroes = (query) => {
             power: heroToShow.powerstats.power,
             combat: heroToShow.powerstats.combat,
           },
+          alignment: heroToShow.biography.alignment,
           image: heroToShow.image.url,
         };
         return hero;
