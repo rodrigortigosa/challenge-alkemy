@@ -1,5 +1,8 @@
 import { Row, Col, Card, Button } from "react-bootstrap";
 import { PowerStats } from "./Powerstats";
+import { generatePath } from "react-router";
+import { DETAILS } from "../config/router/paths";
+import { Link } from "react-router-dom";
 
 export function Hero(props) {
   const hero = props.hero;
@@ -13,7 +16,9 @@ export function Hero(props) {
       <Card.Body>
         <Row className="row-cols-1 row-cols-sm-2 justify-content-between">
           <Col className="text-center mb-2 mb-sm-0">
-            <Button variant="primary">Ver detalle</Button>
+            <Link to={generatePath(DETAILS, { id: hero.id })}>
+              <Button variant="primary">Ver detalle</Button>
+            </Link>
           </Col>
           <Col className="text-center">
             <Button variant="danger">Eliminar</Button>

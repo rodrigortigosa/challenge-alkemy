@@ -93,7 +93,7 @@ function App() {
   ];
   const [team, setTeam] = useState(initialTeam);
 
-  function handleCallback(hero, history) {
+  function handleShowResults(hero, history) {
     if (team.length === 6) alert("El equipo está completo");
     else {
       setTeam((prevTeam) => prevTeam.concat(hero));
@@ -103,7 +103,7 @@ function App() {
 
   const teamValue = {
     team: team,
-    handleCallback: handleCallback,
+    handleShowResults: handleShowResults,
   };
 
   return (

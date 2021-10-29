@@ -51,12 +51,9 @@ function showResults(heroes, onClick, history) {
 }
 
 export const Results = () => {
-  const history = useHistory();
-  console.log(history);
-
   let query = useQuery().get("search");
   const teamData = useContext(TeamContext);
-  console.log(teamData.team);
+  const history = useHistory();
 
   const [heroes, setHeroes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -79,7 +76,7 @@ export const Results = () => {
       {loading ? (
         <Loading />
       ) : (
-        showResults(heroes, teamData.handleCallback, history)
+        showResults(heroes, teamData.handleShowResults, history)
       )}
     </>
   );
