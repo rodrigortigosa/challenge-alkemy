@@ -9,7 +9,7 @@ export const Loading = () => {
         <img src={wheel} alt="Loading wheel" width="100px"></img>
       </div>
       <div className="div-loading-text">
-        <p>Loading...</p>
+        <p>Cargando...</p>
       </div>
     </div>
   );
