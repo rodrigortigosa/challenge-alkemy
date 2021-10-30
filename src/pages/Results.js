@@ -73,11 +73,7 @@ export const Results = () => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        showResults(heroes, teamData.handleShowResults, history)
-      )}
+      {loading ? <Loading /> : showResults(heroes, teamData.handleAdd, history)}
     </>
   );
 };
