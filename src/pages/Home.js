@@ -3,18 +3,17 @@ import { Header } from "../components/Header";
 import { Title } from "../components/Title";
 import { Heroes } from "../components/Heroes";
 import { Container } from "react-bootstrap";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import TeamContext from "../contexts/TeamContext";
 
 export function Home() {
-  const teamData = useContext(TeamContext);
-  const team = teamData.team;
-
+  const { team } = useContext(TeamContext);
+  useEffect(() => {}, [team]);
   return (
     <Container className="w-auto">
       <Header />
       <Title text="Equipo" />
-      <Heroes heroes={team} />
+      {team.length === 0 ? <div>Buscar heroes</div> : <Heroes />}
     </Container>
   );
 }

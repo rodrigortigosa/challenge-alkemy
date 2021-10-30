@@ -3,9 +3,13 @@ import { PowerStats } from "./Powerstats";
 import { generatePath } from "react-router";
 import { DETAILS } from "../config/router/paths";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import TeamContext from "../contexts/TeamContext";
 
 export function Hero(props) {
   const hero = props.hero;
+  const { handleDelete } = useContext(TeamContext);
+
   return (
     <Card className="m-3 w-75">
       <Card.Img variant="bottom" src={hero.image} />
@@ -21,7 +25,9 @@ export function Hero(props) {
             </Link>
           </Col>
           <Col className="text-center">
-            <Button variant="danger">Eliminar</Button>
+            <Button variant="danger" onClick={() => handleDelete(hero.id)}>
+              Eliminar
+            </Button>
           </Col>
         </Row>
       </Card.Body>

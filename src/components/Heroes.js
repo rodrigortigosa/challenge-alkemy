@@ -1,7 +1,11 @@
 import { Container, Row, Col, Badge } from "react-bootstrap";
 import { Hero } from "./Hero";
+import { useContext } from "react";
+import TeamContext from "../contexts/TeamContext";
 
-export function Heroes(props) {
+export function Heroes() {
+  const { team } = useContext(TeamContext);
+  const heroes = team;
   const totalPowerstats = [];
 
   let totalIntelligence = 0;
@@ -11,15 +15,13 @@ export function Heroes(props) {
   let totalPower = 0;
   let totalCombat = 0;
 
-  const heroes = props.heroes;
-
   for (let i = 0; i < heroes.length; i++) {
-    totalIntelligence += heroes[i].powerstats.intelligence;
-    totalStrength += heroes[i].powerstats.strength;
-    totalSpeed += heroes[i].powerstats.speed;
-    totalDurability += heroes[i].powerstats.durability;
-    totalPower += heroes[i].powerstats.power;
-    totalCombat += heroes[i].powerstats.combat;
+    totalIntelligence += parseInt(heroes[i].powerstats.intelligence);
+    totalStrength += parseInt(heroes[i].powerstats.strength);
+    totalSpeed += parseInt(heroes[i].powerstats.speed);
+    totalDurability += parseInt(heroes[i].powerstats.durability);
+    totalPower += parseInt(heroes[i].powerstats.power);
+    totalCombat += parseInt(heroes[i].powerstats.combat);
   }
 
   totalPowerstats.push(totalIntelligence);
@@ -29,7 +31,7 @@ export function Heroes(props) {
   totalPowerstats.push(totalPower);
   totalPowerstats.push(totalCombat);
 
-  totalPowerstats.sort((a, b) => a - b).reverse();
+  /* totalPowerstats.sort((a, b) => a - b).reverse(); */
 
   return (
     <Container className="p-0 w-auto">
@@ -61,7 +63,7 @@ function TotalPowerstats(props) {
   for (let i = 0; i < props.totals.length; i++) {
     let totalsObject = {
       name: totalsNames[i],
-      number: props.totals[i],
+      number: parseInt(props.totals[i]),
     };
     totals.push(totalsObject);
   }

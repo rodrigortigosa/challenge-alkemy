@@ -52,7 +52,7 @@ function showResults(heroes, onClick, history) {
 
 export const Results = () => {
   let query = useQuery().get("search");
-  const teamData = useContext(TeamContext);
+  const { handleAdd } = useContext(TeamContext);
   const history = useHistory();
 
   const [heroes, setHeroes] = useState([]);
@@ -71,9 +71,5 @@ export const Results = () => {
       });
   }, [query]);
 
-  return (
-    <>
-      {loading ? <Loading /> : showResults(heroes, teamData.handleAdd, history)}
-    </>
-  );
+  return <>{loading ? <Loading /> : showResults(heroes, handleAdd, history)}</>;
 };
