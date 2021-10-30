@@ -1,20 +1,29 @@
 import { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { Loading } from "../components/Loading";
 import heroesService from "../services/heroes";
 import TeamContext from "../contexts/TeamContext";
 import { useHistory } from "react-router";
+import { SEARCH } from "../config/router/paths";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
 function showResults(heroes, onClick, history) {
-  if (heroes.length === 0) return <div>No hay resultados</div>;
-  else {
-    return (
-      <Container className="p-0 px-4 mt-3">
+  return (
+    <Container className="p-0 px-4 mt-3">
+      {heroes.length === 0 ? (
+        <Row className="rows-cols-1 justify-content-center my-5 py-5">
+          <Col className="text-center mt-5 mb-3" xs={8}>
+            <span>No hay resultados</span>
+          </Col>
+          <Col className="text-center mb-5" xs={8}>
+            <Link to={SEARCH}>Volver a buscar</Link>
+          </Col>
+        </Row>
+      ) : (
         <Row className="row-cols-1 row-cols-lg-3">
           {heroes.map((hero) => {
             return (
@@ -45,9 +54,9 @@ function showResults(heroes, onClick, history) {
             );
           })}
         </Row>
-      </Container>
-    );
-  }
+      )}
+    </Container>
+  );
 }
 
 export const Results = () => {
