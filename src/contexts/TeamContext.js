@@ -98,7 +98,8 @@ export const TeamProvider = ({ children }) => {
 
   if (team.length !== 0) {
     for (let i = 0; i < team.length; i++) {
-      if (team[i].alignment === "good") alignmentGood += 1;
+      if (team[i].alignment === "good" || team[i].alignment === "neutral")
+        alignmentGood += 1;
       else alignmentBad += 1;
     }
   }
@@ -107,8 +108,10 @@ export const TeamProvider = ({ children }) => {
     if (team.length === 6) alert("El equipo está completo");
     else if (team.find((heroInTeam) => heroInTeam.id === hero.id))
       alert(`${hero.name} ya se encuentra en el equipo`);
-    else if (alignmentGood === 3) alert("Debes agrear un villano");
-    else if (alignmentBad === 3) alert("Debes agregar un heroe");
+    else if (alignmentGood === 3 && hero.alignment === "good")
+      alert("Debes agrear un villano");
+    else if (alignmentBad === 3 && hero.alignment === "bad")
+      alert("Debes agregar un heroe");
     else {
       let array = [hero];
       setTeam(team.concat(array));
